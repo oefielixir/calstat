@@ -10,23 +10,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::auth();
 
-Route::get('/home', 'HomeController@index');
+
 
 Route::get('/reg', 'Auth\RegisterController@createreq');
 
 Route::get('/', function () {
-    return view('admin.home');
+    return redirect('login');
 });
+//
+//Route::get('/admin', function () {
+//    return view('admin.home');
+//});
 
-Route::get('/admin', function () {
-    return view('admin.home');
-});
-
-Route::get('/login', function () {
-    return view('auth.login');
-});
+//Route::get('/login', function () {
+//    return view('auth.login');
+//});
 
 Route::get('/charts', function () {
     return View::make('admin.charts');
@@ -82,4 +81,12 @@ Route::get('/progressbars', function() {
 
 Route::get('/collapse', function() {
     return View::make('admin.collapse');
+});
+
+//Route::post('/home', 'HomeController@index');
+
+Route::auth();
+
+Route::get('/home', function () {
+    return view('admin.home');
 });
